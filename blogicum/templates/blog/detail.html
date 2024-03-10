@@ -1,23 +1,22 @@
 {% extends "base.html" %}
-{% load static %}
 {% block title %}
-  Остров отчаянья. {{date}}
+  Остров отчаянья. {{ date }}
 {% endblock %}
 {% block content %}
   <article>
     <ul>
       <li>
-        {{post.location}}             
+        {{ post.location }}             
       </li>
       <li>
-        {{post.date}}
+        {{ post.date }}
       </li>
       <li>
         Категория: <a href="{% url 'blog:category_posts' post.category %}">{{ post.category }}</a>
       </li>
     </ul>         
     <p>
-      {{post.text|linebreaks}}
+      {{ post.text|linebreaks }}
     </p>          
   </article>
 {% endblock %}

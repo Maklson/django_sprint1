@@ -49,8 +49,11 @@ def index(request):
     return render(request, 'blog/index.html', {'post_list': posts})
 
 
+post_id = [post['id'] for post in posts]
+
+
 def post_detail(request, id):
-    if id not in [post['id'] for post in posts]:
+    if id not in post_id:
         raise Http404(f'Не найден пост с идентификатором {id}.')
     return render(request, 'blog/detail.html', {'post': posts[id]})
 
